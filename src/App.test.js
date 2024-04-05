@@ -41,7 +41,13 @@ test('theme button should update button text', () => {
 // e.g.: expect(element).toHaveStyle('color: #FFF');
 test('theme button should toggle styles', () => {
   // TODO: change the expect to actually test something 😉
-  expect('no test written').toBe('tested');
+  render(<App />)
+
+  const button = screen.getByText(/Current theme*/);
+  const { body } = document;
+  fireEvent.click(button);
+
+  expect(body).toHaveStyle("color: rgb(255, 255, 255)");
 });
 
 /**
